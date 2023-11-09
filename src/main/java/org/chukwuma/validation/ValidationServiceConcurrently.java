@@ -80,30 +80,30 @@ public class ValidationServiceConcurrently {
             }
             if (!usernameValidation.join()) {
                 if (username == null || username.isEmpty()) {
-                    message[0] += "username is null or empty";
+                    message[0] += "Username: not empty\n";
                 } else {
-                    message[0] += "username is invalid";
+                    message[0] += "Username: min 4 characters\n";
                 }
             }
             if (!emailValidation.join()) {
                 if (email == null || email.isEmpty()) {
-                    message[0] += "email is null or empty";
+                    message[0] += "Email: not empty\n";
                 } else {
-                    message[0] += "email is invalid";
+                    message[0] += "Email: invalid\n";
                 }
             }
             if (!passwordValidation.join()) {
                 if (password == null || password.isEmpty()) {
-                    message[0] += "password is null or empty";
+                    message[0] += "Password: not empty\n";
                 } else {
-                    message[0] += "password is invalid";
+                    message[0] += "Password: not a strong password.\n";
                 }
             }
             if (!dobValidation.join()) {
                 if (dateOfBirth == null || dateOfBirth.isEmpty()) {
-                    message[0] += "date of birth is null or empty";
+                    message[0] += "Date of birth: not empty\n";
                 } else {
-                    message[0] += "date of birth is invalid";
+                    message[0] += "Date of birth: must be 16 years or older";
                 }
             }
             return message[0];
